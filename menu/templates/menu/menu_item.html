@@ -1,0 +1,12 @@
+<li>
+    <a href="{{ item.get_url }}" {% if item.get_url == current_url %} class="active" {% endif %}>
+        {{ item.title }}
+    </a>
+    {% if item.children.all %}
+        <ul>
+            {% for child in item.children.all %}
+                {% include 'menu/menu_item.html' with item=child current_url=current_url %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+</li>

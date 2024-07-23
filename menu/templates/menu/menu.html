@@ -1,0 +1,7 @@
+<ul>
+    {% for item in menu_items %}
+        {% if not item.parent %}
+            {% include 'menu/menu_item.html' with item=item current_url=current_url %}
+        {% endif %}
+    {% endfor %}
+</ul>
